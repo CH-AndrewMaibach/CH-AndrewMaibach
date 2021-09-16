@@ -1,0 +1,5 @@
+select c.name, bc.name
+from financialtransactionengine_operations.hibernate.client c
+left join financialtransactionengine_operations.hibernate.billable_client bc
+ON c.id=bc.client_id
+order by 1
