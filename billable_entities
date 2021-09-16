@@ -1,0 +1,7 @@
+select be.name, a.*, bp.* from financialtransactionengine_operations.hibernate.account a
+join financialtransactionengine_operations.hibernate.billable_entity be on be.id = a.billable_entity_id
+join financialtransactionengine_operations.hibernate.billable_client bc on bc.id = be.billable_client_id
+join financialtransactionengine_operations.hibernate.billable_partner bp on bp.id = be.billable_partner_id
+where (bc.name like'%Mimeo%' OR bc.name like'%BASS%'OR bc.name like'%Symantec%')
+AND a.record_valid_to = date'3000-01-01'
+order by 1,4
